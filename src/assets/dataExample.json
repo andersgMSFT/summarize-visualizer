@@ -1,0 +1,1155 @@
+{
+    "input": {
+        "PageData": {
+            "currentPageName": "Customer Card",
+            "fields": {
+                "$systemId": {
+                    "id": 2000000000,
+                    "value": "7a5505ad-d1b6-ef11-b8eb-6045bdaca6fb"
+                },
+                "Name": {
+                    "id": 1165569367,
+                    "value": "New Concepts Furniture"
+                },
+                "IC Partner Code": {
+                    "id": 1541522561,
+                    "value": ""
+                },
+                "Balance (LCY)": {
+                    "id": 505526935,
+                    "value": "222241.32"
+                },
+                "Balance Due (LCY)": {
+                    "id": 1240934187,
+                    "value": "222241.32"
+                },
+                "Credit Limit (LCY)": {
+                    "id": 2090874039,
+                    "value": "0"
+                },
+                "Blocked": {
+                    "id": 828682406,
+                    "value": " "
+                },
+                "Privacy Blocked": {
+                    "id": 1591741192,
+                    "value": "False"
+                },
+                "Salesperson Code": {
+                    "id": 1843410170,
+                    "value": "JR"
+                },
+                "Responsibility Center": {
+                    "id": 667278025,
+                    "value": ""
+                },
+                "Service Zone Code": {
+                    "id": 139050216,
+                    "value": "X"
+                },
+                "Document Sending Profile": {
+                    "id": 693266338,
+                    "value": ""
+                },
+                "Costs (LCY)": {
+                    "id": 1333258459,
+                    "value": "0"
+                },
+                "Profit (LCY)": {
+                    "id": 218755466,
+                    "value": "0"
+                },
+                "Profit %": {
+                    "id": 1633058496,
+                    "value": "0"
+                },
+                "Last Date Modified": {
+                    "id": 2068286383,
+                    "value": "2024-12-10"
+                },
+                "Disable Search by Name": {
+                    "id": 1301289344,
+                    "value": "False"
+                },
+                "Address": {
+                    "id": 1224250944,
+                    "value": "705 West Peachtree Street"
+                },
+                "Address 2": {
+                    "id": 417953314,
+                    "value": ""
+                },
+                "Country/Region Code": {
+                    "id": 2146705836,
+                    "value": "US"
+                },
+                "City": {
+                    "id": 968663385,
+                    "value": "Atlanta"
+                },
+                "County": {
+                    "id": 1066811740,
+                    "value": "GA"
+                },
+                "Post Code": {
+                    "id": 23012995,
+                    "value": "US-GA 31772"
+                },
+                "ShowMap": {
+                    "id": 1011864425,
+                    "value": "Show on Map"
+                },
+                "Phone No.": {
+                    "id": 2054119235,
+                    "value": ""
+                },
+                "Mobile Phone No.": {
+                    "id": 1202638051,
+                    "value": ""
+                },
+                "Email": {
+                    "id": 1789368545,
+                    "value": ""
+                },
+                "Fax No.": {
+                    "id": 1271758082,
+                    "value": ""
+                },
+                "Home Page": {
+                    "id": 1164636762,
+                    "value": ""
+                },
+                "Language Code": {
+                    "id": 687845151,
+                    "value": "ENU"
+                },
+                "Contact Code": {
+                    "id": 305684661,
+                    "value": "CT000022"
+                },
+                "Contact Name": {
+                    "id": 1674928937,
+                    "value": "Ms. Tammy L. McDonald"
+                },
+                "Bill-to Customer": {
+                    "id": 508535328,
+                    "value": ""
+                },
+                "VAT Registration No.": {
+                    "id": 1364513557,
+                    "value": ""
+                },
+                "GLN": {
+                    "id": 156215907,
+                    "value": ""
+                },
+                "Use GLN in Electronic Documents": {
+                    "id": 1598423374,
+                    "value": "False"
+                },
+                "Copy Sell-to Addr. to Qte From": {
+                    "id": 833249165,
+                    "value": "Company"
+                },
+                "Tax Liable": {
+                    "id": 1017416524,
+                    "value": "False"
+                },
+                "Tax Area Code": {
+                    "id": 2067777833,
+                    "value": ""
+                },
+                "Gen. Bus. Posting Group": {
+                    "id": 1162088137,
+                    "value": "EXPORT"
+                },
+                "VAT Bus. Posting Group": {
+                    "id": 597610776,
+                    "value": "EXPORT"
+                },
+                "Customer Posting Group": {
+                    "id": 1640817493,
+                    "value": "FOREIGN"
+                },
+                "Currency Code": {
+                    "id": 461092308,
+                    "value": "USD"
+                },
+                "Price Calculation Method": {
+                    "id": 591772797,
+                    "value": " "
+                },
+                "Customer Price Group": {
+                    "id": 657865896,
+                    "value": ""
+                },
+                "Customer Disc. Group": {
+                    "id": 597499554,
+                    "value": "LARGE ACC"
+                },
+                "Allow Line Disc.": {
+                    "id": 391851894,
+                    "value": "True"
+                },
+                "Invoice Disc. Code": {
+                    "id": 572740591,
+                    "value": "01454545"
+                },
+                "Prices Including VAT": {
+                    "id": 2009581022,
+                    "value": "False"
+                },
+                "Prepayment %": {
+                    "id": 1407261070,
+                    "value": "0"
+                },
+                "Application Method": {
+                    "id": 981015251,
+                    "value": "Manual"
+                },
+                "Partner Type": {
+                    "id": 1534522296,
+                    "value": " "
+                },
+                "Payment Terms Code": {
+                    "id": 1070240188,
+                    "value": "CM"
+                },
+                "Payment Method Code": {
+                    "id": 1808626666,
+                    "value": ""
+                },
+                "Reminder Terms Code": {
+                    "id": 409538560,
+                    "value": "FOREIGN"
+                },
+                "Fin. Charge Terms Code": {
+                    "id": 911817531,
+                    "value": "2.0 FOR."
+                },
+                "Cash Flow Payment Terms Code": {
+                    "id": 1455472303,
+                    "value": ""
+                },
+                "Print Statements": {
+                    "id": 1338513929,
+                    "value": "True"
+                },
+                "Last Statement No.": {
+                    "id": 1422360278,
+                    "value": "0"
+                },
+                "Block Payment Tolerance": {
+                    "id": 1655226876,
+                    "value": "False"
+                },
+                "Preferred Bank Account Code": {
+                    "id": 1159676447,
+                    "value": ""
+                },
+                "Ship-to Code": {
+                    "id": 1376712183,
+                    "value": ""
+                },
+                "Location Code": {
+                    "id": 1594976894,
+                    "value": "YELLOW"
+                },
+                "Combine Shipments": {
+                    "id": 2065383396,
+                    "value": "True"
+                },
+                "Reserve": {
+                    "id": 501713934,
+                    "value": "Optional"
+                },
+                "Shipping Advice": {
+                    "id": 1699493760,
+                    "value": "Partial"
+                },
+                "Code": {
+                    "id": 739949452,
+                    "value": "EXW"
+                },
+                "Agent": {
+                    "id": 46168848,
+                    "value": ""
+                },
+                "Agent Service": {
+                    "id": 2096727027,
+                    "value": ""
+                },
+                "Shipping Time": {
+                    "id": 1449451463,
+                    "value": ""
+                },
+                "Base Calendar Code": {
+                    "id": 979996532,
+                    "value": ""
+                },
+                "Customized Calendar": {
+                    "id": 1956086741,
+                    "value": "No"
+                },
+                "Money Owed - Current": {
+                    "id": 1645359021,
+                    "value": "222241.32"
+                },
+                "Money Owed - Expected": {
+                    "id": 1898174680,
+                    "value": "0"
+                },
+                "Money Owed - Total": {
+                    "id": 294012819,
+                    "value": "0"
+                },
+                "Credit Limit": {
+                    "id": 945286918,
+                    "value": "0"
+                },
+                "Usage Of Credit Limit": {
+                    "id": 1514720409,
+                    "value": "0"
+                },
+                "Balance Due": {
+                    "id": 1449648156,
+                    "value": "0"
+                },
+                "Payments This Year": {
+                    "id": 238150152,
+                    "value": "0"
+                },
+                "Average Collection Period (Days)": {
+                    "id": 1337366040,
+                    "value": "0"
+                },
+                "Average Late Payments (Days)": {
+                    "id": 624318197,
+                    "value": "0"
+                },
+                "AmountOnPostedInvoices": {
+                    "id": 75023320,
+                    "value": "0"
+                },
+                "AmountOnCrMemo": {
+                    "id": 1299582904,
+                    "value": "0"
+                },
+                "AmountOnOutstandingInvoices": {
+                    "id": 1780276939,
+                    "value": "0"
+                },
+                "AmountOnOutstandingCrMemos": {
+                    "id": 1954377681,
+                    "value": "0"
+                },
+                "Total Sales": {
+                    "id": 713431689,
+                    "value": "0"
+                },
+                "Invoice Discounts": {
+                    "id": 1532675297,
+                    "value": "0"
+                }
+            },
+            "parts": {
+                "Customer Picture": {
+                    "fields": {
+                        "$systemId": {
+                            "id": 2000000000,
+                            "value": "7a5505ad-d1b6-ef11-b8eb-6045bdaca6fb"
+                        },
+                        "Image": {
+                            "id": 1037566064,
+                            "value": "00000000-0000-0000-0000-000000000000"
+                        }
+                    }
+                },
+                "Details": {
+                    "fields": {
+                        "$systemId": {
+                            "id": 2000000000,
+                            "value": "7a5505ad-d1b6-ef11-b8eb-6045bdaca6fb"
+                        },
+                        "Balance (LCY)": {
+                            "id": 2060362557,
+                            "value": "222241.32"
+                        },
+                        "Past Due": {
+                            "id": 1743204040,
+                            "value": "0"
+                        },
+                        "LTD Sales": {
+                            "id": 1731921282,
+                            "value": "0"
+                        },
+                        "YTD Sales": {
+                            "id": 1540902003,
+                            "value": "0"
+                        }
+                    }
+                },
+                "Dynamics 365 Sales Statistics": {
+                    "fields": {
+                        "$systemId": {
+                            "id": 2000000000,
+                            "value": "7a5505ad-d1b6-ef11-b8eb-6045bdaca6fb"
+                        },
+                        "Opportunities": {
+                            "id": 1238672926,
+                            "value": "0"
+                        },
+                        "Quotes": {
+                            "id": 890683700,
+                            "value": "0"
+                        },
+                        "Cases": {
+                            "id": 1327355850,
+                            "value": "0"
+                        }
+                    }
+                },
+                "Dimensions": [
+                    {
+                        "fields": {
+                            "$systemId": {
+                                "id": 2000000000,
+                                "value": "f83f06b3-d1b6-ef11-b8eb-6045bdaca6fb"
+                            },
+                            "Dimension Value Code": {
+                                "id": 2044461897,
+                                "value": "70"
+                            },
+                            "Value Posting": {
+                                "id": 397121748,
+                                "value": "Code Mandatory"
+                            }
+                        }
+                    },
+                    {
+                        "fields": {
+                            "$systemId": {
+                                "id": 2000000000,
+                                "value": "f93f06b3-d1b6-ef11-b8eb-6045bdaca6fb"
+                            },
+                            "Dimension Value Code": {
+                                "id": 2044461897,
+                                "value": "OFFICE"
+                            },
+                            "Value Posting": {
+                                "id": 397121748,
+                                "value": " "
+                            }
+                        }
+                    },
+                    {
+                        "fields": {
+                            "$systemId": {
+                                "id": 2000000000,
+                                "value": "f73f06b3-d1b6-ef11-b8eb-6045bdaca6fb"
+                            },
+                            "Dimension Value Code": {
+                                "id": 2044461897,
+                                "value": "MEDIUM"
+                            },
+                            "Value Posting": {
+                                "id": 397121748,
+                                "value": "Same Code"
+                            }
+                        }
+                    },
+                    {
+                        "fields": {
+                            "$systemId": {
+                                "id": 2000000000,
+                                "value": "7e5505ad-d1b6-ef11-b8eb-6045bdaca6fb"
+                            },
+                            "Dimension Value Code": {
+                                "id": 2044461897,
+                                "value": "SALES"
+                            },
+                            "Value Posting": {
+                                "id": 397121748,
+                                "value": " "
+                            }
+                        }
+                    }
+                ]
+            },
+            "relatedPages": {
+                "Customer Statistics": [
+                    {
+                        "metadata": {
+                            "objectId": 151,
+                            "objectType": "Page"
+                        },
+                        "fields": {
+                            "$systemId": {
+                                "id": 2000000000,
+                                "value": "9a1dea95-48dd-ef11-9344-6045bdc89db2"
+                            },
+                            "Balance (LCY)": {
+                                "id": 326898769,
+                                "value": "32644.3"
+                            },
+                            "Outstanding Orders (LCY)": {
+                                "id": 284969640,
+                                "value": "3363.2"
+                            },
+                            "Shipped Not Invoiced (LCY)": {
+                                "id": 1444716828,
+                                "value": "0"
+                            },
+                            "Outstanding Invoices (LCY)": {
+                                "id": 441531663,
+                                "value": "5885.6"
+                            },
+                            "Outstanding Serv. Orders (LCY)": {
+                                "id": 2113348458,
+                                "value": "0"
+                            },
+                            "Serv Shipped Not Invoiced(LCY)": {
+                                "id": 1730055016,
+                                "value": "0"
+                            },
+                            "Outstanding Serv.Invoices(LCY)": {
+                                "id": 1941807987,
+                                "value": "0"
+                            },
+                            "Total (LCY)": {
+                                "id": 1796812154,
+                                "value": "41893.1"
+                            },
+                            "Credit Limit (LCY)": {
+                                "id": 2093178079,
+                                "value": "0"
+                            },
+                            "Balance Due (LCY)": {
+                                "id": 592339731,
+                                "value": "32644.3"
+                            },
+                            "Invoiced Prepayment Amount (LCY)": {
+                                "id": 1591973783,
+                                "value": "0"
+                            },
+                            "This Period - CustDateName[1]": {
+                                "id": 1317363627,
+                                "value": "June      "
+                            },
+                            "This Period - Sales (LCY)": {
+                                "id": 1830253896,
+                                "value": "0"
+                            },
+                            "This Period - Original Costs (LCY)": {
+                                "id": 929469831,
+                                "value": "0"
+                            },
+                            "This Period - Original Profit (LCY)": {
+                                "id": 1633692710,
+                                "value": "0"
+                            },
+                            "This Period - Original Profit %": {
+                                "id": 339089622,
+                                "value": "0"
+                            },
+                            "This Period - Adjusted Costs (LCY)": {
+                                "id": 545951990,
+                                "value": "0"
+                            },
+                            "This Period - Adjusted Profit (LCY)": {
+                                "id": 1121976953,
+                                "value": "0"
+                            },
+                            "This Period - Adjusted Profit %": {
+                                "id": 497147105,
+                                "value": "0"
+                            },
+                            "This Period - Cost Adjmt. Amounts (LCY)": {
+                                "id": 1339475857,
+                                "value": "0"
+                            },
+                            "This Period - Inv. Discounts (LCY)": {
+                                "id": 964702952,
+                                "value": "0"
+                            },
+                            "This Period - Inv. Amounts (LCY)": {
+                                "id": 578007159,
+                                "value": "0"
+                            },
+                            "This Period - Reminder Amounts (LCY)": {
+                                "id": 619628116,
+                                "value": "0"
+                            },
+                            "This Period - Fin. Charges (LCY)": {
+                                "id": 731697805,
+                                "value": "0"
+                            },
+                            "This Period - Cr. Memo Amounts (LCY)": {
+                                "id": 751547604,
+                                "value": "0"
+                            },
+                            "This Period - Payments (LCY)": {
+                                "id": 1794901943,
+                                "value": "0"
+                            },
+                            "This Period - Refunds (LCY)": {
+                                "id": 1490338965,
+                                "value": "0"
+                            },
+                            "This Period - Other Amounts (LCY)": {
+                                "id": 1143428931,
+                                "value": "0"
+                            },
+                            "This Period - Pmt. Discounts (LCY)": {
+                                "id": 1585659431,
+                                "value": "0"
+                            },
+                            "This Period - Pmt. Disc. Tol. (LCY)": {
+                                "id": 1943279264,
+                                "value": "0"
+                            },
+                            "This Period - Pmt. Tolerances (LCY)": {
+                                "id": 366564059,
+                                "value": "0"
+                            },
+                            "This Year - Sales (LCY)": {
+                                "id": 1436666085,
+                                "value": "2275.5"
+                            },
+                            "This Year - Original Costs (LCY)": {
+                                "id": 685663203,
+                                "value": "0"
+                            },
+                            "This Year - Original Profit (LCY)": {
+                                "id": 1685201941,
+                                "value": "2275.5"
+                            },
+                            "This Year - Original Profit %": {
+                                "id": 1876081627,
+                                "value": "100.0"
+                            },
+                            "This Year - Adjusted Costs (LCY)": {
+                                "id": 2040604287,
+                                "value": "0"
+                            },
+                            "This Year - Adjusted Profit (LCY)": {
+                                "id": 911102012,
+                                "value": "2275.5"
+                            },
+                            "This Year - Adjusted Profit %": {
+                                "id": 1561860590,
+                                "value": "100.0"
+                            },
+                            "This Year - Adjustment Costs (LCY)": {
+                                "id": 1927744030,
+                                "value": "0"
+                            },
+                            "This Year - Inv. Discounts (LCY)": {
+                                "id": 21767659,
+                                "value": "0"
+                            },
+                            "This Year - Inv. Amounts (LCY)": {
+                                "id": 1707837668,
+                                "value": "2275.5"
+                            },
+                            "This Year - Reminder Amounts (LCY)": {
+                                "id": 366842495,
+                                "value": "0"
+                            },
+                            "This Year - Fin. Charges (LCY)": {
+                                "id": 398132704,
+                                "value": "0"
+                            },
+                            "This Year - Cr. Memo Amounts (LCY)": {
+                                "id": 1758806567,
+                                "value": "0"
+                            },
+                            "This Year - Payments (LCY)": {
+                                "id": 1737608518,
+                                "value": "2275.5"
+                            },
+                            "This Year - Refunds (LCY)": {
+                                "id": 1547632390,
+                                "value": "0"
+                            },
+                            "This Year - Other Amounts (LCY)": {
+                                "id": 136169968,
+                                "value": "0"
+                            },
+                            "This Year - Pmt. Discounts (LCY)": {
+                                "id": 578400468,
+                                "value": "0"
+                            },
+                            "This Year - Pmt. Disc. Tolerance (LCY)": {
+                                "id": 813448755,
+                                "value": "0"
+                            },
+                            "This Year - Payment Tolerances (LCY)": {
+                                "id": 1848607190,
+                                "value": "0"
+                            },
+                            "Last Year - Sales (LCY)": {
+                                "id": 822315766,
+                                "value": "34106.9"
+                            },
+                            "Last Year - Original Costs (LCY)": {
+                                "id": 222759171,
+                                "value": "26599.3"
+                            },
+                            "Last Year - Original Profit (LCY)": {
+                                "id": 1066237850,
+                                "value": "7507.6"
+                            },
+                            "Last Year - Original Profit %": {
+                                "id": 854569812,
+                                "value": "22.0"
+                            },
+                            "Last Year - Adjusted Costs (LCY)": {
+                                "id": 1391854962,
+                                "value": "26599.3"
+                            },
+                            "Last Year - Adjusted Profit (LCY)": {
+                                "id": 653213845,
+                                "value": "7507.6"
+                            },
+                            "Last Year - Adjusted Profit %": {
+                                "id": 18333085,
+                                "value": "22.0"
+                            },
+                            "Last Year - Adjustment Costs (LCY)": {
+                                "id": 384216525,
+                                "value": "0"
+                            },
+                            "Last Year - Inv. Discounts (LCY)": {
+                                "id": 1521759846,
+                                "value": "0"
+                            },
+                            "Last Year - Inv. Amounts (LCY)": {
+                                "id": 1043602123,
+                                "value": "34106.9"
+                            },
+                            "Last Year - Reminder Amounts (LCY)": {
+                                "id": 981192814,
+                                "value": "0"
+                            },
+                            "Last Year - Fin. Charges (LCY)": {
+                                "id": 1920871857,
+                                "value": "0"
+                            },
+                            "Last Year - Cr. Memo Amounts (LCY)": {
+                                "id": 236067414,
+                                "value": "0"
+                            },
+                            "Last Year - Payments (LCY)": {
+                                "id": 173292661,
+                                "value": "1462.6"
+                            },
+                            "Last Year - Refunds (LCY)": {
+                                "id": 1203807401,
+                                "value": "0"
+                            },
+                            "Last Year - Other Amounts (LCY)": {
+                                "id": 1658909121,
+                                "value": "0"
+                            },
+                            "Last Year - Pmt. Discounts (LCY)": {
+                                "id": 2142716325,
+                                "value": "0"
+                            },
+                            "Last Year - Pmt. Disc. Tolerance (LCY)": {
+                                "id": 730078750,
+                                "value": "0"
+                            },
+                            "Last Year - Payment Tolerances (LCY)": {
+                                "id": 923620953,
+                                "value": "0"
+                            },
+                            "To Date - Sales (LCY)": {
+                                "id": 1199920995,
+                                "value": "144894.6"
+                            },
+                            "To Date - Original Costs (LCY)": {
+                                "id": 1202303453,
+                                "value": "111225.3"
+                            },
+                            "To Date - Original Profit (LCY)": {
+                                "id": 709420973,
+                                "value": "33669.3"
+                            },
+                            "To Date - Original Profit %": {
+                                "id": 2140563875,
+                                "value": "23.2"
+                            },
+                            "To Date - Adjusted Costs (LCY)": {
+                                "id": 1400271047,
+                                "value": "111225.3"
+                            },
+                            "To Date - Adjusted Profit (LCY)": {
+                                "id": 989242370,
+                                "value": "33669.3"
+                            },
+                            "To Date - Adjusted Profit %": {
+                                "id": 1304327148,
+                                "value": "23.2"
+                            },
+                            "To Date - Adjustment Costs (LCY)": {
+                                "id": 466878884,
+                                "value": "0"
+                            },
+                            "To Date - Inv. Discounts (LCY)": {
+                                "id": 1878576723,
+                                "value": "0"
+                            },
+                            "To Date - Inv. Amounts (LCY)": {
+                                "id": 686785246,
+                                "value": "144894.6"
+                            },
+                            "To Date - Reminder Amounts (LCY)": {
+                                "id": 1181846137,
+                                "value": "0"
+                            },
+                            "To Date - Fin. Charges (LCY)": {
+                                "id": 1720218534,
+                                "value": "0"
+                            },
+                            "To Date - Cr. Memo Amounts (LCY)": {
+                                "id": 1700368735,
+                                "value": "0"
+                            },
+                            "To Date - Payments (LCY)": {
+                                "id": 1459286724,
+                                "value": "112250.3"
+                            },
+                            "To Date - Refunds (LCY)": {
+                                "id": 225546560,
+                                "value": "0"
+                            },
+                            "To Date - Other Amounts (LCY)": {
+                                "id": 699622026,
+                                "value": "0"
+                            },
+                            "To Date - Pmt. Discounts (LCY)": {
+                                "id": 320867026,
+                                "value": "0"
+                            },
+                            "To Date - Pmt. Disc. Tolerance (LCY)": {
+                                "id": 1086895627,
+                                "value": "0"
+                            },
+                            "To Date - Payment Tolerances (LCY)": {
+                                "id": 1631356464,
+                                "value": "0"
+                            },
+                            "_x-ms-pagefilter": {
+                                "id": 2110000001,
+                                "value": "\u0027No.\u0027 IS \u002730000\u0027 AND \u0027Date Filter\u0027 IS \u0027\u0027\u0027\u0027\u0027..06/04/25\u0027"
+                            }
+                        }
+                    }
+                ],
+                "Customer Entry Statistics": [
+                    {
+                        "metadata": {
+                            "objectId": 302,
+                            "objectType": "Page"
+                        },
+                        "fields": {
+                            "$systemId": {
+                                "id": 2000000000,
+                                "value": "9a1dea95-48dd-ef11-9344-6045bdc89db2"
+                            },
+                            "Date - Payment": {
+                                "id": 583124418,
+                                "value": "2025-02-08"
+                            },
+                            "Date - Invoice": {
+                                "id": 620820869,
+                                "value": "2025-01-21"
+                            },
+                            "Date - Credit Memo": {
+                                "id": 963812916,
+                                "value": "0001-01-01"
+                            },
+                            "Date - Reminder": {
+                                "id": 1194866074,
+                                "value": "0001-01-01"
+                            },
+                            "Date - Finance Charge Memo": {
+                                "id": 630414611,
+                                "value": "0001-01-01"
+                            },
+                            "Date - Refund": {
+                                "id": 1323397985,
+                                "value": "0001-01-01"
+                            },
+                            "Document No. - Document No.": {
+                                "id": 697876509,
+                                "value": ""
+                            },
+                            "Currency Code - Currency Code": {
+                                "id": 837101969,
+                                "value": ""
+                            },
+                            "Amount - Amount": {
+                                "id": 1282885479,
+                                "value": "0"
+                            },
+                            "Remaining Amount - Remaining Amount": {
+                                "id": 257668757,
+                                "value": "0"
+                            },
+                            "This Period - CustDateName[1]": {
+                                "id": 1446889431,
+                                "value": "June      "
+                            },
+                            "This Period - Payments": {
+                                "id": 2125577564,
+                                "value": "0"
+                            },
+                            "This Period - Invoices": {
+                                "id": 1162130769,
+                                "value": "0"
+                            },
+                            "This Period - Credit Memos": {
+                                "id": 1568520670,
+                                "value": "0"
+                            },
+                            "This Period - Reminder": {
+                                "id": 1911442984,
+                                "value": "0"
+                            },
+                            "This Period - Finance Charge Memos": {
+                                "id": 1769173993,
+                                "value": "0"
+                            },
+                            "This Period - Refund": {
+                                "id": 883395669,
+                                "value": "0"
+                            },
+                            "This Period - Avg. Collection Period (Days)": {
+                                "id": 1997268964,
+                                "value": "0"
+                            },
+                            "This Period - Largest Balance (LCY)": {
+                                "id": 1201036655,
+                                "value": "32644.3"
+                            },
+                            "This Year - Payments": {
+                                "id": 1115704391,
+                                "value": "2"
+                            },
+                            "This Year - Invoices": {
+                                "id": 129233780,
+                                "value": "2"
+                            },
+                            "This Year - Credit Memos": {
+                                "id": 1672761285,
+                                "value": "0"
+                            },
+                            "This Year - Reminder": {
+                                "id": 1415227843,
+                                "value": "0"
+                            },
+                            "This Year - Finance Charge Memos": {
+                                "id": 149088014,
+                                "value": "0"
+                            },
+                            "This Year - Refund": {
+                                "id": 407968880,
+                                "value": "0"
+                            },
+                            "This Year - Avg. Collection Period (Days)": {
+                                "id": 214857202,
+                                "value": "18"
+                            },
+                            "This Year - Largest Balance": {
+                                "id": 193777692,
+                                "value": "34919.8"
+                            },
+                            "Last Year - Payments": {
+                                "id": 923083246,
+                                "value": "6"
+                            },
+                            "Last Year - Invoices": {
+                                "id": 865789821,
+                                "value": "12"
+                            },
+                            "Last Year - Credit Memos": {
+                                "id": 677737684,
+                                "value": "0"
+                            },
+                            "Last Year - Reminder": {
+                                "id": 1222606698,
+                                "value": "0"
+                            },
+                            "Last Year - Finance Charge Memos": {
+                                "id": 608256379,
+                                "value": "0"
+                            },
+                            "Last Year - Refund": {
+                                "id": 1123736569,
+                                "value": "0"
+                            },
+                            "Last Year - Avg. Collection Period (Days)": {
+                                "id": 301115774,
+                                "value": "0"
+                            },
+                            "Last Year - Largest Balance": {
+                                "id": 420572627,
+                                "value": "32644.3"
+                            },
+                            "Remaining Amt. (LCY) - Remaining Amt. (LCY)": {
+                                "id": 2050961320,
+                                "value": "0"
+                            },
+                            "_x-ms-pagefilter": {
+                                "id": 2110000001,
+                                "value": "\u0027No.\u0027 IS \u002730000\u0027"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "UserContext": {
+            "IsTenantAdmin": false,
+            "IsDelegatedHelpdesk": false,
+            "WorkDate": "2024-12-16T00:00:00Z",
+            "UserSettings": {
+                "CultureShortName": "en-US",
+                "CultureFullName": "English (United States)",
+                "DateFormat": "MM/dd/yyyy",
+                "TimeFormat": "hh:mm tt",
+                "DefaultCurrencyCode": "USD",
+                "DefaultCurrencySymbol": "$"
+            },
+            "UserProfile": {
+                "ProfileId": "SalesOrderProcessor",
+                "ProfileCaption": "Sales Order Processor",
+                "ProfileDescription": "Handles customer sales orders, invoicing, and related tasks."
+            }
+        }
+    },
+    "Insights": [
+        {
+            "Value": "2582.8",
+            "SourceId": "5",
+            "Score": 10,
+            "Description": "The balance due is 2,582.80 LCY, indicating the total amount the customer owes at this time.",
+            "Source": "Balance Due (LCY)",
+            "SourceContext": null
+        },
+        {
+            "Value": "2500",
+            "SourceId": "6",
+            "Score": 9,
+            "Description": "The credit limit is set at 2,500 LCY, which indicates the maximum amount of credit extended to the customer.",
+            "Source": "Credit Limit (LCY)",
+            "SourceContext": null
+        },
+        {
+            "Value": "0",
+            "SourceId": "70",
+            "Score": 8,
+            "Description": "There are 0 ongoing sales orders for this customer, indicating no current orders are being processed.",
+            "Source": "Ongoing Sales Orders",
+            "SourceContext": null
+        },
+        {
+            "Value": "1",
+            "SourceId": "75",
+            "Score": 7,
+            "Description": "There is 1 posted sales invoice for this customer, reflecting completed transactions that have been billed.",
+            "Source": "Posted Sales Invoices",
+            "SourceContext": null
+        },
+        {
+            "Value": "0",
+            "SourceId": "83",
+            "Score": 8,
+            "Description": "There are 0 outstanding invoices, indicating that there are no pending payments due from the customer.",
+            "Source": "Outstanding Invoices (LCY)",
+            "SourceContext": null
+        },
+        {
+            "Value": "2582.8",
+            "SourceId": "92",
+            "Score": 9,
+            "Description": "Total sales amount to 2,582.80 LCY, representing the total revenue generated from this customer.",
+            "Source": "Total Sales (LCY)",
+            "SourceContext": null
+        },
+        {
+            "Value": "726",
+            "SourceId": "140",
+            "Score": 8,
+            "Description": "The original profit for this year is 726 LCY, indicating the profit generated from sales after costs.",
+            "Source": "This Year - Original Profit (LCY)",
+            "SourceContext": null
+        },
+        {
+            "Value": "28.1",
+            "SourceId": "141",
+            "Score": 8,
+            "Description": "The original profit percentage for this year is 28.1%, indicating the profitability ratio of sales.",
+            "Source": "This Year - Original Profit %",
+            "SourceContext": null
+        },
+        {
+            "Value": "2582.8",
+            "SourceId": "4",
+            "Score": 10,
+            "Description": "The current balance is 2,582.80 LCY, reflecting the total amount owed by the customer at this moment.",
+            "Source": "Balance (LCY)",
+            "SourceContext": null
+        },
+        {
+            "Value": "e78f22d0-65ef-ef11-9343-6045bdacdef8",
+            "SourceId": "1",
+            "Score": 7,
+            "Description": "The customer number is 32656565, which uniquely identifies this customer in the system.",
+            "Source": "$systemId",
+            "SourceContext": null
+        },
+        {
+            "Value": "Antarcticopy",
+            "SourceId": "3",
+            "Score": 7,
+            "Description": "The customer name is Antarcticopy, which is the registered name for this customer account.",
+            "Source": "Name",
+            "SourceContext": null
+        },
+        {
+            "Value": "JR",
+            "SourceId": "8",
+            "Score": 6,
+            "Description": "The salesperson code is JR, indicating the salesperson responsible for this customer account.",
+            "Source": "Salesperson Code",
+            "SourceContext": null
+        },
+        {
+            "Value": "14 DAYS",
+            "SourceId": "37",
+            "Score": 7,
+            "Description": "The payment terms code is \u002714 DAYS\u0027, indicating the payment period expected from the customer.",
+            "Source": "Payment Terms Code",
+            "SourceContext": null
+        },
+        {
+            "Value": "0",
+            "SourceId": "91",
+            "Score": 8,
+            "Description": "The balance due is 0 LCY, indicating that there are no amounts currently owed by the customer.",
+            "Source": "Balance Due (LCY)",
+            "SourceContext": null
+        },
+        {
+            "Value": "2582.8",
+            "SourceId": "4",
+            "Score": 10,
+            "Description": "The balance (LCY) is 2,582.80, indicating the total amount owed by the customer.",
+            "Source": "Balance (LCY)",
+            "SourceContext": null
+        }
+    ]
+}
