@@ -1,54 +1,60 @@
 import React, { useState } from "react";
-import {
-  List,
-  ListItem,
-  Dialog,
-  DialogSurface,
-  DialogBody,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-  DialogTrigger,
-  Button,
-} from "@fluentui/react-components";
+import { List, ListItem } from "@fluentui/react-components";
 import { TestResult } from "../model/InputDataModel";
-import TestResultCard from "./TestResultCard"; // Make sure this exists
+import TestResultCard from "./TestResultCard";
+
+import "./TestResultsListControl.css";
 
 interface ITestResultsListControlProps {
   results: TestResult[];
 }
 
-const TestResultsListControl: React.FC<ITestResultsListControlProps> = ({ results }) => {
-  const [selectedResult, setSelectedResult] = useState<TestResult | null>(null);
+const TestResultsListControl: React.FC<ITestResultsListControlProps> = ({
+  results,
+}) => {
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
-  const handleItemClick = (result: TestResult) => { 
-    console.log("Clicked item:", result); // Debugging line
-    setSelectedResult(result);
+  const handleItemClick = (index: number) => {
+    console.log("Clicked item index:", index); // Debugging line
+    setSelectedIndex(index);
   };
 
   return (
     <>
-      <List>
-        {results.map((result, index) => (
-          <ListItem
-            key={index}
-            style={styles.listItem}
-            onClick={() => handleItemClick(result)}
-          >
-            <div style={styles.row}>
-              <div style={styles.start}>
-                {index + 1}. {result.input.currentPageName} ({result.userContext.UserProfileSettings.ProfileCaption})
-              </div>
-              <div style={styles.middle}>- {result.scenario}</div>
-              <div style={styles.end}>{result.passed ? "✅ Passed" : "❌ Failed"}</div>
-            </div>
-          </ListItem>
-        ))}
-      </List>
-      {selectedResult && <div>
-        <TestResultCard result={selectedResult} />
-        </div>
+      <List className="test-results-list">
+      {results.map((result, index) => (
+        <ListItem
+        key={index}
+        style={styles.listItem}
+        onClick={() => handleItemClick(index)}
+        className={
+          selectedIndex === index ? "selected" : ""
         }
+        >
+        <div style={styles.row}>
+          <div style={styles.start}>
+          {index + 1}. {result.input.currentPageName} (
+          {result.userContext.UserProfileSettings.ProfileCaption})
+          </div>
+          <div style={styles.middle}>- {result.scenario}</div>
+          <div style={styles.end}>
+          {result.passed ? "✅ Passed" : "❌ Failed"}
+          </div>
+        </div>
+        </ListItem>
+      ))}
+      </List>
+      {selectedIndex !== null && (
+      <div className="test-result-card-container">
+        <button
+        onClick={() => setSelectedIndex(null)}
+        style={{ marginBottom: "1rem" }}
+        >
+        Hide
+        </button>
+        <TestResultCard result={results[selectedIndex]} />
+      </div>
+      )}
     </>
   );
 };
