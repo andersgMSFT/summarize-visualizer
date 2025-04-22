@@ -20,12 +20,10 @@ interface ITestResultsListControlProps {
 
 const TestResultsListControl: React.FC<ITestResultsListControlProps> = ({ results }) => {
   const [selectedResult, setSelectedResult] = useState<TestResult | null>(null);
-  const [dialogOpen, setDialogOpen] = useState(false);
 
   const handleItemClick = (result: TestResult) => { 
     console.log("Clicked item:", result); // Debugging line
     setSelectedResult(result);
-    setDialogOpen(true);
   };
 
   return (
