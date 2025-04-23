@@ -30,7 +30,7 @@ export interface Field {
   export interface Insight {
     Value: string | number;
     SourceId: number;
-    Score: number | string;
+    Score: ScoreEnum;
     Description: string;
     Source: string;
     SourceContext: any;
@@ -54,3 +54,10 @@ export interface Field {
     passed: boolean;
   }
   
+  export enum ScoreEnum {
+    VeryLow = 0,
+    Low = 1,
+    Medium = 2,
+    High = 3,
+    VeryHigh = 4,
+  }
