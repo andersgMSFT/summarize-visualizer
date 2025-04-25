@@ -1,31 +1,45 @@
 import React from "react";
 import { TestResult } from "../model/InputDataModel";
-import { Text } from "@fluentui/react-components";
+import { Button, Text } from "@fluentui/react-components";
+import { DismissFilled, DocumentOnePageRegular } from "@fluentui/react-icons";
 
 import Markdown from "react-markdown";
 import { InsightsListControl } from "./InsightsListControl";
+import { openPageWithDocumentData } from "./InputPageDataCard";
+import { getStars } from "../Utility/Util";
+
 
 interface TestResultCardProps {
   result: TestResult;
+  closeCard: () => void;
 }
 
-const TestResultCard: React.FC<TestResultCardProps> = ({ result }) => {
-  const { scenario, input, userContext, output, evaluation, passed } = result;
+const TestResultCard: React.FC<TestResultCardProps> = (
+  props: TestResultCardProps
+) => {
+  const { scenario, input, userContext, output, evaluation, rating } =
+    props.result;
+  const { closeCard } = props;
 
-  let cardStyle: React.CSSProperties = {
+  const cardStyle: React.CSSProperties = {
     display: "flex",
     flexDirection: "column",
     padding: "20px",
     border: "1px solid #ccc",
     borderRadius: "8px",
     marginBottom: "20px",
-    width: "80vw",
-    height: "80vh",
+    width: "90vw",
+    height: "90vh",
     backgroundColor: "#242424",
   };
 
   return (
     <div style={cardStyle}>
+      <Button
+        size="large"
+        icon={<DismissFilled />}
+        onClick={closeCard}
+      ></Button>
       <div
         style={{
           display: "flex",
@@ -44,6 +58,11 @@ const TestResultCard: React.FC<TestResultCardProps> = ({ result }) => {
             <strong>Scenario: </strong> {scenario}
           </Text>
         </div>
+        <div style={{ alignSelf: "end" }}>
+            <Button size="large" icon={<DocumentOnePageRegular/>} onClick={() => openPageWithDocumentData(input)} >
+            Open Page Data
+            </Button>
+        </div>
       </div>
       <div
         style={{
@@ -58,19 +77,19 @@ const TestResultCard: React.FC<TestResultCardProps> = ({ result }) => {
           <InsightsListControl insights={output} />
         </div>
         <div style={{ flex: 2, height: "100%", paddingLeft: "20px" }}>
-          <EvaluationControl evaluation={evaluation} />
+          <EvaluationControl evaluation={evaluation} rating={rating} />
         </div>
       </div>
     </div>
   );
 };
 
-function EvaluationControl(props: { evaluation: string }) {
-  const { evaluation } = props;
+function EvaluationControl(props: { evaluation: string; rating: number }) {
+  const { evaluation, rating } = props;
   return (
     <>
-      <Text style={{ color: "#fff", fontSize: "14pt", textAlign: "center" }}>
-        <strong>Evaluation</strong>
+      <Text style={{ color: "#fff", fontSize: "20pt", textAlign: "center" }}>
+        <strong>{getStars(rating)}</strong>
       </Text>
       <div
         style={{

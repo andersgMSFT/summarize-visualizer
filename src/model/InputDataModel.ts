@@ -30,10 +30,10 @@ export interface Field {
   export interface Insight {
     Value: string | number;
     SourceId: number;
-    Score: ScoreEnum;
+    Score: number;
     Description: string;
     Source: string;
-    SourceContext: any;
+    SourceContext: string | number;
   }
   
   export interface UserContext {
@@ -51,7 +51,7 @@ export interface Field {
     userContext: UserContext;
     output: Insight[];
     evaluation: string;
-    passed: boolean;
+    rating: number;
   }
   
   export enum ScoreEnum {

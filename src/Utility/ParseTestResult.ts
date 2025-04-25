@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { InputData, Insight, ScoreEnum, TestResult, UserContext } from '../model/InputDataModel';
 import Papa from 'papaparse'
 
@@ -5,6 +6,9 @@ function parseTestLine(csvLine: any): TestResult {
   const { scenario: scenario, input: inputJson, userContext: userContextJson, output: outputJson, evaluation } = csvLine;
 
   const input = JSON.parse(inputJson) as InputData;
+  // Fix for casing issue in the CSV file
+  input.currentPageName = input.currentPageName || (input as any).CurrentPageName
+
   const userContext = JSON.parse(userContextJson) as UserContext;
   const output = JSON.parse(outputJson) as Insight[];
 
@@ -13,7 +17,11 @@ function parseTestLine(csvLine: any): TestResult {
     insight.Score = MapToScoreEnum(insight.Score);
   }); 
 
-  const passed = csvLine['passed\r']?.trim().toLowerCase() === 'true';
+  let rating = Number(csvLine['rating\r']?.trim());
+  if (isNaN(rating) || rating < 0 || rating > 5) {
+    console.warn(`Invalid rating value: ${rating}. Assigning default value.`);
+    rating = rating < 0 ? 0 : 5;
+  }
 
   return {
     scenario,
@@ -21,7 +29,7 @@ function parseTestLine(csvLine: any): TestResult {
     userContext,
     output,
     evaluation,
-    passed,
+    rating,
   };
 }
 
@@ -43,7 +51,7 @@ export function parseTestResult(csvFile: string): TestResult[] {
   return result.data.map(parseTestLine);
 }
 
-
+// NOTE: Not used in this version
 function MapToScoreEnum (value: string | number): ScoreEnum {
   if (typeof value === 'number') {
     return value as ScoreEnum;

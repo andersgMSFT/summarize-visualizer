@@ -1,92 +1,128 @@
-import React, { useState } from "react";
-import { List, ListItem } from "@fluentui/react-components";
-import { TestResult } from "../model/InputDataModel";
-import TestResultCard from "./TestResultCard";
+import React from "react";
+import {
+  createTableColumn,
+  DataGrid,
+  DataGridProps,
+  TableCellLayout,
+  TableColumnDefinition,
+  DataGridHeader,
+  DataGridBody,
+  DataGridCell,
+  DataGridHeaderCell,
+  DataGridRow,
+} from "@fluentui/react-components";
+import { Insight, TestResult } from "../model/InputDataModel";
 
 import "./TestResultsListControl.css";
+import { getStars } from "../Utility/Util";
 
 interface ITestResultsListControlProps {
   results: TestResult[];
+  openCard: (index: number) => void;
 }
 
-const TestResultsListControl: React.FC<ITestResultsListControlProps> = ({
-  results,
-}) => {
-  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+export default function TestResultsListControl(props: ITestResultsListControlProps) {
+  const { results, openCard } = props;
 
-  const handleItemClick = (index: number) => {
-    console.log("Clicked item index:", index); // Debugging line
-    setSelectedIndex(index);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const onSelectionChange: DataGridProps["onSelectionChange"] = (e: any, data: { selectedItems: any; }) => {
+    const index = Number(data.selectedItems.values().next().value);
+    console.log("Selected item index:", index); 
+    openCard(index);
+  };
+
+  const [sortState, setSortState] = React.useState<
+  Parameters<NonNullable<DataGridProps["onSortChange"]>>[1]
+  >({
+    sortColumn: "score",
+    sortDirection: "desc",
+  });
+
+  const onSortChange: DataGridProps["onSortChange"] = (
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    e: any,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    nextSortState: any
+  ) => {
+    setSortState(nextSortState);
   };
 
   return (
-    <>
-      <List className="test-results-list">
-      {results.map((result, index) => (
-        <ListItem
-        key={index}
-        style={styles.listItem}
-        onClick={() => handleItemClick(index)}
-        className={
-          selectedIndex === index ? "selected" : ""
-        }
-        >
-        <div style={styles.row}>
-          <div style={styles.start}>
-          {index + 1}. {result.input.currentPageName} (
-          {result.userContext.UserProfileSettings.ProfileCaption})
-          </div>
-          <div style={styles.middle}>- {result.scenario}</div>
-          <div style={styles.end}>
-          {result.passed ? "✅ Passed" : "❌ Failed"}
-          </div>
-        </div>
-        </ListItem>
-      ))}
-      </List>
-      {selectedIndex !== null && (
-      <div className="test-result-card-container">
-        <button
-        onClick={() => setSelectedIndex(null)}
-        style={{ marginBottom: "1rem" }}
-        >
-        Hide
-        </button>
-        <TestResultCard result={results[selectedIndex]} />
-      </div>
-      )}
-    </>
+    <div style={{ width: "100%", height: "100%", overflow: "auto" }}>
+      <DataGrid
+        items={results}
+        columns={columns}
+        sortable
+        sortState={sortState}
+        onSortChange={onSortChange}
+        onSelectionChange={onSelectionChange}
+        selectionMode="single"
+      >
+        <DataGridHeader>
+          <DataGridRow>
+            {({ renderHeaderCell }) => (
+              <DataGridHeaderCell>{renderHeaderCell()}</DataGridHeaderCell>
+            )}
+          </DataGridRow>
+        </DataGridHeader>
+        <DataGridBody<Insight>>
+          {({ item, rowId }) => (
+            <DataGridRow<Insight>
+              key={rowId}
+              style={{ borderBottom: "1px solid black" }}
+              >
+              {({ renderCell }) => (
+                <DataGridCell>{renderCell(item)}</DataGridCell>
+              )}
+            </DataGridRow>
+          )}
+        </DataGridBody>
+      </DataGrid>
+    </div>
   );
-};
+}
 
-export default TestResultsListControl;
-
-const styles = {
-  row: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    width: "100%",
-    gap: "1rem",
-  },
-  listItem: {
-    cursor: "pointer",
-    transition: "background 0.2s",
-    borderRadius: "4px",
-    padding: "0.5rem",
-    marginBottom: "0.2rem",
-    userSelect: "none",
-  },
-  start: {
-    width: "20rem",
-    textAlign: "left" as const,
-  },
-  middle: {
-    flex: 1,
-    textAlign: "left" as const,
-  },
-  end: {
-    minWidth: "6rem",
-    textAlign: "right" as const,
-  },
-};
+const columns: TableColumnDefinition<TestResult>[] = [
+  createTableColumn<TestResult>({
+    columnId: "scenario",
+    compare: (a, b) => {
+      return a.scenario.localeCompare(b.scenario);
+    },
+    renderHeaderCell: () => {
+      return <strong>Scenario</strong>;
+    },
+    renderCell: (testResult) => {
+      return <TableCellLayout>{testResult.scenario}</TableCellLayout>;
+    },
+  }),
+  createTableColumn<TestResult>({
+    columnId: "context",
+    compare: (a, b) => {
+      return a.userContext.UserProfileSettings.ProfileCaption.localeCompare(
+        b.userContext.UserProfileSettings.ProfileCaption
+      );
+    },
+    renderHeaderCell: () => {
+      return <strong>Context</strong>;
+    },
+    renderCell: (testResult) => {
+      return (
+        <TableCellLayout>
+          {testResult.input.currentPageName} - {testResult.userContext.UserProfileSettings.ProfileCaption}
+        </TableCellLayout>
+      );
+    },
+  }),
+  createTableColumn<TestResult>({
+    columnId: "evaluation",
+    compare: (a, b) => {
+      return a.rating - b.rating;
+    },
+    renderHeaderCell: () => {
+      return <strong>Evaluation</strong>;
+    },
+    renderCell: (testResult) => {
+      return <TableCellLayout>{getStars(testResult.rating)}</TableCellLayout>;
+    },
+  }),
+];
