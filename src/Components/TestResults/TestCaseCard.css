@@ -1,0 +1,78 @@
+.testCaseCard-container {
+  position: fixed; /* Position the card on top of other content */
+  top: 0; /* Align to the top of the page */
+  left: 0; /* Align to the left of the page */
+  width: 100%; /* Take up the full width */
+  height: 100%; /* Take up the full height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  z-index: 100; /* Ensure it appears above other content */
+  background-color: rgba(0, 0, 0, 0.5); /* Add a semi-transparent black background */
+}
+
+
+.testCaseCard-card {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  width: 90vw;
+  height: 90vh;
+  background-color: #242424;
+}
+
+.testCaseCard-header {
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+}
+
+.testCaseCard-title {
+  color: #fff;
+  font-size: 16pt;
+}
+
+.testCaseCard-scenario {
+  color: #fff;
+  font-size: 14pt;
+}
+
+.testCaseCard-open-page-button {
+  align-self: end;
+}
+
+.testCaseCard-content {
+  height: 85%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.testCaseCard-insights {
+  flex: 1;
+  height: 100%;
+  padding-right: 20px;
+}
+
+.testCaseCard-evaluation {
+  flex: 2;
+  height: 100%;
+  padding-left: 20px;
+}
+
+.testCaseCard-evaluation-text {
+  color: #fff;
+  font-size: 20pt;
+  text-align: center;
+}
+
+.testCaseCard-evaluation-container {
+  height: 100%;
+  text-align: left;
+  overflow-y: auto;
+}

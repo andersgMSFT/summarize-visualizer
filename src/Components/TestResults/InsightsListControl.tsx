@@ -12,7 +12,7 @@ import {
   DataGridProps,
   Text,
 } from "@fluentui/react-components";
-import { Insight} from "../model/InputDataModel";
+import { Insight} from "../../model/InputDataModel";
 
 const columns: TableColumnDefinition<Insight>[] = [
   createTableColumn<Insight>({
@@ -81,7 +81,7 @@ export const InsightsListControl = (props: { insights: Insight[] }) => {
 
   const onSortChange: DataGridProps["onSortChange"] = (
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    e: any,
+    _e: any,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     nextSortState: any
   ) => {

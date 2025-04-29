@@ -25,6 +25,9 @@ export interface Field {
     relatedPages: {
       [key: string]: PageSection[];
     };
+    parts: {
+      [key: string]: PageSection[];
+    };
   }
   
   export interface Insight {
@@ -45,7 +48,7 @@ export interface Field {
     };
   }
   
-  export interface TestResult {
+  export interface TestCase {
     scenario: string;
     input: InputData;
     userContext: UserContext;
@@ -54,6 +57,7 @@ export interface Field {
     rating: number;
   }
   
+  // NOTE not used yet
   export enum ScoreEnum {
     VeryLow = 0,
     Low = 1,

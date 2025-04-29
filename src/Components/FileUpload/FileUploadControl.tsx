@@ -1,28 +1,18 @@
 import { useState } from 'react';
-import { parseTestResult } from '../Utility/ParseTestResult';
-import { TestResult } from '../model/InputDataModel';
+import { parseTestResult } from './ParseTestResult';
+import { TestCase } from '../../model/InputDataModel';
 
-function handleTestResultFile(file: File): Promise<TestResult[]> {
-    return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onload = (event) => {
-            try {
-                const testData = parseTestResult(event.target?.result as string);
-                resolve(testData);
-            } catch (error) {
-                reject(error);
-            }
-        };
-        reader.onerror = (error) => reject(error);
-        reader.readAsText(file);
-    });
+export interface IFileUploadResult
+{
+    result?: TestCase[];
+    fileName?: string;
 }
 
-interface FileUploadControlProps {
-    setParsedData: (data: TestResult[]) => void;
+export interface FileUploadControlProps {
+    setParsedData: (result: IFileUploadResult) => void;
 }
 
-function FileUploadControl(props: FileUploadControlProps) {
+export function FileUploadControl(props: FileUploadControlProps) {
     const { setParsedData } = props;
     const [error, setError] = useState<string | null>(null);
 
@@ -74,4 +64,19 @@ function FileUploadControl(props: FileUploadControlProps) {
     );
 }
 
-export default FileUploadControl;
+// Helper functions
+function handleTestResultFile(file: File): Promise<IFileUploadResult> {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+            try {
+                const testData = parseTestResult(event.target?.result as string);
+                resolve({result: testData, fileName: file.name});
+            } catch (error) {
+                reject(error);
+            }
+        };
+        reader.onerror = (error) => reject(error);
+        reader.readAsText(file);
+    });
+}

@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import FileUploadControl from "./Components/FileUploadControl"; // Assuming this component exists
-import TestResultViewer from "./Components/TestResultsViewer"; // Assuming this component exists
-import { InputData, TestResult } from "./model/InputDataModel";
+import { FileUploadControl, IFileUploadResult } from "./Components/FileUpload/FileUploadControl"; // Assuming this component exists
+import TestResultViewer from "./Components/TestResults/TestResultsViewer"; // Assuming this component exists
+import { InputData, TestCase } from "./model/InputDataModel";
 import { Button } from "@fluentui/react-components";
-import { ArrowRepeatAll24Filled } from "@fluentui/react-icons";
-import { InputPageDataCard } from "./Components/InputPageDataCard";
+import {
+  ArrowRepeatAll24Filled,
+  DocumentCheckmarkRegular,
+} from "@fluentui/react-icons";
+import { InputPageDataCard } from "./Components/InputDataCard/InputPageDataCard";
+import TestSummaryCard from "./Components/TestSummary/TestSummaryCard";
 
 enum AppState {
   WaitingForUpload = "waitingforupload",
@@ -15,24 +19,31 @@ enum AppState {
 }
 
 function App() {
-  const [parsedData, setParsedData] = useState<TestResult[]>([]);
+  const [parsedData, setParsedData] = useState<IFileUploadResult>({});
   const [pageData, setPageData] = useState<InputData>({} as InputData);
   const [appState, setAppState] = useState<AppState>(AppState.WaitingForUpload);
+
+  const [showSummary, setShowSummary] = useState(false);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   function handleFileUploadSuccess(data: any) {
     setParsedData(data);
     setAppState(AppState.VisualizeData);
+    showScoreCard();
   }
 
   function unloadTestData() {
-    setParsedData([]);
+    setParsedData({});
     setAppState(AppState.WaitingForUpload);
+  }
+
+  function showScoreCard() {
+    setShowSummary(true);
   }
 
   function initializePageData() {
     if (appState === AppState.ShowPageData) {
-      return;      
+      return;
     }
 
     const storedData = localStorage.getItem("documentData");
@@ -53,8 +64,12 @@ function App() {
   });
 
   if (appState === AppState.ShowPageData) {
-      return <InputPageDataCard pageData={pageData!} />;
+    return <InputPageDataCard pageData={pageData!} />;
   }
+
+  const isDataLoaded = parsedData.result && parsedData.result.length > 0;
+  const testCases = parsedData.result || [];
+  const testName = parsedData.fileName;
 
   return (
     <>
@@ -63,37 +78,51 @@ function App() {
           position: "relative",
           display: "flex",
           alignItems: "center",
+          justifyContent: "space-between",
           padding: "10px",
         }}
       >
-        {appState === AppState.VisualizeData && parsedData.length > 0 && (
-          <Button
-            size="large"
-            icon={<ArrowRepeatAll24Filled />}
-            onClick={unloadTestData}
-          />
-        )}
-        <h1
-          style={{
-            position: "absolute",
-            left: "50%",
-            transform: "translateX(-50%)",
-            margin: 0,
-          }}
+        <Button
+          size="large"
+          icon={<ArrowRepeatAll24Filled />}
+          onClick={unloadTestData}
+          disabled={!isDataLoaded}
+          title={isDataLoaded ? "Unload test data" : "No test data loaded"}
+        />
+        <h1 style={{ margin: 0 }}>Find Insights Test Result Viewer</h1>
+        <Button
+          size="large"
+          icon={<DocumentCheckmarkRegular />}
+          onClick={showScoreCard}
+          disabled={!isDataLoaded}
+          title={isDataLoaded ? "Show test summary" : "No test data loaded"}
         >
-          Find Insights Test Result Viewer
-        </h1>
+          See test summary
+        </Button>
       </div>
-      {renderContent(appState, parsedData, pageData, handleFileUploadSuccess)}
+      {renderContent(appState, testCases, handleFileUploadSuccess)}
+      {renderTestSummary(showSummary, testCases, testName!, setShowSummary)}
     </>
   );
 }
 
+function renderTestSummary(
+  showSummary: boolean,
+  parsedData: TestCase[] | null,
+  testName: string,
+  setShowSummary: (show: boolean) => void,
+){
+  if (!showSummary || !parsedData) {
+    return null;
+  }
+
+  return <TestSummaryCard testName={testName} result={parsedData} closeCard={() => setShowSummary(false)}/>;
+}
+
 function renderContent(
   appState: AppState,
-  parsedData: TestResult[] | null,
-  pageData: InputData | null,
-  setParsedData: (data: TestResult[]) => void
+  parsedData: TestCase[] | null,
+  setParsedData: (data: IFileUploadResult) => void
 ) {
   switch (appState) {
     case AppState.WaitingForUpload:

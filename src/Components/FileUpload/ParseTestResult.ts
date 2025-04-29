@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { InputData, Insight, ScoreEnum, TestResult, UserContext } from '../model/InputDataModel';
+import { InputData, Insight, ScoreEnum, TestCase, UserContext } from '../../model/InputDataModel';
 import Papa from 'papaparse'
 
-function parseTestLine(csvLine: any): TestResult {
+function parseTestLine(csvLine: any): TestCase {
   const { scenario: scenario, input: inputJson, userContext: userContextJson, output: outputJson, evaluation } = csvLine;
 
   const input = JSON.parse(inputJson) as InputData;
@@ -33,7 +33,7 @@ function parseTestLine(csvLine: any): TestResult {
   };
 }
 
-export function parseTestResult(csvFile: string): TestResult[] {
+export function parseTestResult(csvFile: string): TestCase[] {
   const result = Papa.parse(csvFile, {
     delimiter: ';',
     newline: '\n',

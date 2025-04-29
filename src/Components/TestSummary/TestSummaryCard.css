@@ -1,0 +1,49 @@
+.testSummaryCard-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3); /* translucent background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.testSummaryCard-card {
+  background-color: #242424;
+  border-radius: 12px;
+  padding: 24px;
+  height: 60vh;
+  width: 60vw;
+}
+
+.testSummaryCard-Overview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 14pt;
+  margin: 40px;
+}
+
+.testSummaryCard-scoreDistribution {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 14pt;
+  margin-bottom: 40px;
+}
+
+.testSummaryCard-star {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 200px;
+}
+
+.testSummaryCard-star:first-child {
+  text-align: left; 
+}
