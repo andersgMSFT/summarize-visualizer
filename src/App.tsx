@@ -89,7 +89,7 @@ function App() {
           disabled={!isDataLoaded}
           title={isDataLoaded ? "Unload test data" : "No test data loaded"}
         />
-        <h1 style={{ margin: 0 }}>Find Insights Test Result Viewer</h1>
+        <h1 style={{ margin: 0 }}>{isDataLoaded ? testName : "Find Insights Test Result Viewer"}</h1>
         <Button
           size="large"
           icon={<DocumentCheckmarkRegular />}
