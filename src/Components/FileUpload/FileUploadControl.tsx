@@ -23,6 +23,7 @@ export function FileUploadControl(props: FileUploadControlProps) {
             setParsedData(data);
             setError(null);
         } catch (err) {
+            console.error('Error parsing file:', err);
             setError(`Failed to parse the file. Please upload a valid JSON file. Error: ${err instanceof Error ? err.message : String(err)}`);
         }
     };

@@ -11,11 +11,13 @@ interface ITestScoreCardProps {
   closeCard: () => void;
 }
 
+const starRange = [0, 1, 2, 3, 4, 5];
+
 function TestSummaryCard(props: ITestScoreCardProps) {
   const { testName, result, closeCard } = props;
 
   const numberOfTestCases = result.length;
-  const starCounts = [1, 2, 3, 4, 5].map(
+  const starCounts = starRange.map(
     (star) => result.filter((testCase) => testCase.rating === star).length
   );
 
@@ -45,16 +47,19 @@ function TestSummaryCard(props: ITestScoreCardProps) {
         <div className="testSummaryCard-content">
           <div className="testSummaryCard-Overview">
             <SummaryValue title="Average Rating" value={averageRating} />
-            <SummaryValue title="Number of Test Cases" value={numberOfTestCases} />
+            <SummaryValue
+              title="Number of Test Cases"
+              value={numberOfTestCases}
+            />
             <SummaryValue title="Failure Rate" value={`${failureRate}%`} />
           </div>
           <div className="testSummaryCard-scoreDistribution">
             <h3>Score Distribution</h3>
-            {[1, 2, 3, 4, 5].map((star, id) => (
+            {starRange.map((star, id) => (
               <div key={star} className="testSummaryCard-star">
                 <div>{getStars(star)}</div>
                 <div>
-                  <Text>{percentages[id]}%</Text>
+                  <Text>{percentages[id] ?? 0}%</Text>
                 </div>
               </div>
             ))}

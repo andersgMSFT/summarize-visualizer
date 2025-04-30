@@ -8,13 +8,14 @@ interface IInputPageDataCardProps {
 
 export function InputPageDataCard({ pageData }: IInputPageDataCardProps) {
   return (
-    <div>
-      <Text style={{ color: "#fff", fontSize: "20pt" }}>
-        {pageData.currentPageName}
-      </Text>
-      <Section title="fields" fields={pageData.fields} />
-      <RelatedPagesControl relatedPages={pageData.relatedPages}/>
-    </div>
+      <div>
+        <Text style={{ color: "#fff", fontSize: "20pt" }}>
+          {pageData.currentPageName}
+        </Text>
+        <Section title="fields" fields={pageData.fields} />
+        <ExtraInformationControl extraPages={pageData.parts} prefix="Parts"/>
+        <ExtraInformationControl extraPages={pageData.relatedPages} prefix="Related pages" />
+      </div>
   );
 }
 
@@ -70,15 +71,16 @@ function Section(props: { title: string; fields: Fields }) {
   );
 }
 
-function RelatedPagesControl(props: {
-  relatedPages: { [key: string]: PageSection[] };
+function ExtraInformationControl(props: {
+  extraPages: { [key: string]: PageSection[] };
+  prefix?: string;
 }) {
-  const { relatedPages } = props;
+  const { extraPages: relatedPages } = props;
 
   const pages = Object.entries(relatedPages);
 
-  const relatedPageElements = pages.map(page => {
-    const name = page[0];
+  const extraSections = pages.map((page) => {
+    const name = props.prefix ? `${props.prefix} - ${page[0]}` : page[0];
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const information = (page[1] as any)["fields"] as Fields;
     console.log("name", name);
@@ -87,7 +89,7 @@ function RelatedPagesControl(props: {
     return <Section title={name} fields={information} />;
   });
 
-  return relatedPageElements;
+  return extraSections;
 }
 
 // eslint-disable-next-line react-refresh/only-export-components

@@ -46,8 +46,7 @@ export default function TestCaseListControl(props: ITestCaseListControlProps) {
 
   return <div
     style={{
-      width: "100%",
-      height: "88vh",
+      height: "80vh",
       overflow: isHidden ? "hidden" : "auto",
     }}
   >
