@@ -2,7 +2,22 @@
 
 A small internal tool built with [Vite](https://vitejs.dev/) to visualize FindInsight Evaluation data for testing and development.
 
-## Getting Started
+## Use the App
+
+🔗 **Live App:** [https://andersgmsft.github.io/summarize-visualizer/](https://andersgmsft.github.io/summarize-visualizer/)
+
+- Upload a CSV file with test results from the `FindInsightsFunctional` test.
+- View a score overview, including:
+  - Average rating
+  - Rating distribution
+- Browse a list of all scenarios with their insight ratings.
+- Click on a scenario to see:
+  - The generated insights
+  - The evaluation data
+  - The assigned rating
+
+
+## Development
 
 ### Prerequisites
 
@@ -30,24 +45,12 @@ Build the app:
 ```bash
 npm run build
 ```
-## How to Use the App
-
-- Upload a CSV file with test results from the `FindInsightsFunctional` test.
-- View a score overview, including:
-  - Average rating
-  - Rating distribution
-- Browse a list of all scenarios with their insight ratings.
-- Click on a scenario to see:
-  - The generated insights
-  - The evaluation data
-  - The assigned rating
-
 
 ## Project Structure
 
 ```
 .
-├── public/              # Static public assets
+├── docs/                # GitHub Pages-compatible directory for publishing the generated site
 ├── src/                 # Source code
 │   ├── assets/          # Static images, icons, example etc.
 │   ├── Components/      # React UI components
