@@ -10,7 +10,22 @@ function parseTestLine(csvLine: any): TestCase {
   input.currentPageName = input.currentPageName || (input as any).CurrentPageName;
   
   const userContext = parseJson<UserContext>(userContextJson, 'UserContext');
-  const insights = parseJson<Insight[]>(outputJson, 'Insight[]');
+
+  let insights: Insight[] = [];
+  try {
+      insights = parseJson<Insight[]>(outputJson, 'Insight[]');
+  }
+  catch {
+      console.warn(`Error parsing output JSON: ${outputJson}. Assigning default value.`);   
+      insights = [{
+        SourceId: 0,
+        Score: 0,
+        Value: outputJson,
+        Description: 'N/A',
+        Source: 'N/A',
+        SourceContext: 'N/A',
+      }];
+  }
   
   // Convert ScoreEnum string values to enum values
   if (Array.isArray(insights)) {

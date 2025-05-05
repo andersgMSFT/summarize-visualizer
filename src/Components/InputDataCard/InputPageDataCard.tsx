@@ -76,7 +76,6 @@ function ExtraInformationControl(props: {
   prefix?: string;
 }) {
   const { extraPages: relatedPages } = props;
-
   const pages = Object.entries(relatedPages);
 
   const extraSections = pages.map((page) => {
