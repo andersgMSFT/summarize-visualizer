@@ -3,13 +3,15 @@ import "./App.css";
 import { FileUploadControl, IFileUploadResult } from "./Components/FileUpload/FileUploadControl"; // Assuming this component exists
 import TestResultViewer from "./Components/TestResults/TestResultsViewer"; // Assuming this component exists
 import { InputData, TestCase } from "./model/InputDataModel";
-import { Button } from "@fluentui/react-components";
+import { Button, Text } from "@fluentui/react-components";
 import {
   ArrowRepeatAll24Filled,
   DocumentCheckmarkRegular,
 } from "@fluentui/react-icons";
 import { InputPageDataCard } from "./Components/InputDataCard/InputPageDataCard";
 import TestSummaryCard from "./Components/TestSummary/TestSummaryCard";
+
+const version = "1.0.1";
 
 enum AppState {
   WaitingForUpload = "waitingforupload",
@@ -82,6 +84,7 @@ function App() {
           padding: "10px",
         }}
       >
+        <Text className="version-tag">{version}</Text>
         <Button
           size="large"
           icon={<ArrowRepeatAll24Filled />}

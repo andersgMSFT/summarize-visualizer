@@ -4,3 +4,11 @@
   padding: 2rem;
   text-align: center;
 }
+
+.version-tag {
+  font-size: 0.8rem;
+  color: #888;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+}
