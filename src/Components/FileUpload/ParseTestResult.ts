@@ -71,7 +71,7 @@ export function parseTestResult(csvFile: string): TestCase[] {
   return result.data.map(parseTestLine);
 }
 
-// NOTE: Not used in this version
+/*
 function MapToScoreEnum(value: string | number): ScoreEnum {
   if (typeof value === 'number') {
     return value as ScoreEnum;
@@ -87,6 +87,7 @@ function MapToScoreEnum(value: string | number): ScoreEnum {
 
   return map[value.toLowerCase()];
 };
+*/
 
 function parseJson<T>(jsonString: string, typeName: string): T {
   try {
