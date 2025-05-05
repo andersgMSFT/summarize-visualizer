@@ -4,42 +4,45 @@ import Papa from 'papaparse'
 
 function parseTestLine(csvLine: any): TestCase {
   const { scenario: scenario, input: inputJson, userContext: userContextJson, output: outputJson, evaluation } = csvLine;
-  
+
   const input = parseJson<InputData>(inputJson, 'InputData');
   // Fix for casing issue in the CSV file
   input.currentPageName = input.currentPageName || (input as any).CurrentPageName;
-  
+
   const userContext = parseJson<UserContext>(userContextJson, 'UserContext');
 
   let insights: Insight[] = [];
   try {
-      insights = parseJson<Insight[]>(outputJson, 'Insight[]');
+    insights = parseJson<Insight[]>(outputJson, 'Insight[]');
+    if (!insights || !(insights.length > 0)) {
+      throw new Error('No insights found in the output JSON.');
+    }
   }
   catch {
-      console.warn(`Error parsing output JSON: ${outputJson}. Assigning default value.`);   
-      insights = [{
-        SourceId: 0,
-        Score: 0,
-        Value: outputJson,
-        Description: 'N/A',
-        Source: 'N/A',
-        SourceContext: 'N/A',
-      }];
+    console.warn(`Error parsing output JSON: ${outputJson}. Assigning default value.`);
+    insights = [{
+      SourceId: 0,
+      Score: 0,
+      Value: !outputJson || outputJson.trim() === '' ? 'No insight could be generated' : outputJson,
+      Description: 'N/A',
+      Source: 'N/A',
+      SourceContext: 'N/A',
+    }];
   }
-  
+
   // Convert ScoreEnum string values to enum values
-  if (Array.isArray(insights)) {
-    insights.forEach((insight) => {
-      insight.Score = MapToScoreEnum(insight.Score);
-    });
-  }
-  
+  // if (Array.isArray(insights)) {
+  //   insights.forEach((insight) => {
+  //     insight.Score = MapToScoreEnum(insight.Score);
+  //   });
+  // }
+
   let rating = Number(csvLine['rating\r']?.trim());
   if (isNaN(rating) || rating < 0 || rating > 5) {
     console.warn(`Invalid rating value: ${rating}. Assigning default value.`);
     rating = rating < 0 ? 0 : 5;
   }
-  
+
   return {
     scenario,
     input,
@@ -57,23 +60,23 @@ export function parseTestResult(csvFile: string): TestCase[] {
     header: true,
     skipEmptyLines: true
   });
-  
-  console.log('Parsed lines: ', result); // Debugging line
-  
+
+  console.log('Parsed lines: ', result);
+
   result.errors.forEach((error) => {
-    console.error('Error parsing line:', error); // Log parsing errors
+    console.error('Error parsing line:', error);
     throw new Error(`Error parsing line: ${error.message}`);
   });
-  
+
   return result.data.map(parseTestLine);
 }
 
 // NOTE: Not used in this version
-function MapToScoreEnum (value: string | number): ScoreEnum {
+function MapToScoreEnum(value: string | number): ScoreEnum {
   if (typeof value === 'number') {
     return value as ScoreEnum;
   }
-  
+
   const map: Record<string, ScoreEnum> = {
     "very low": ScoreEnum.VeryLow,
     "low": ScoreEnum.Low,
@@ -81,7 +84,7 @@ function MapToScoreEnum (value: string | number): ScoreEnum {
     "high": ScoreEnum.High,
     "very high": ScoreEnum.VeryHigh,
   };
-  
+
   return map[value.toLowerCase()];
 };
 
