@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { InputData, Insight, ScoreEnum, TestCase, UserContext } from '../../model/InputDataModel';
+import { InputData, Insight, TestCase, UserContext } from '../../model/InputDataModel';
 import Papa from 'papaparse'
 
 function parseTestLine(csvLine: any): TestCase {
@@ -29,13 +29,6 @@ function parseTestLine(csvLine: any): TestCase {
       SourceContext: 'N/A',
     }];
   }
-
-  // Convert ScoreEnum string values to enum values
-  // if (Array.isArray(insights)) {
-  //   insights.forEach((insight) => {
-  //     insight.Score = MapToScoreEnum(insight.Score);
-  //   });
-  // }
 
   let rating = Number(csvLine['rating\r']?.trim());
   if (isNaN(rating) || rating < 0 || rating > 5) {
@@ -70,24 +63,6 @@ export function parseTestResult(csvFile: string): TestCase[] {
 
   return result.data.map(parseTestLine);
 }
-
-/*
-function MapToScoreEnum(value: string | number): ScoreEnum {
-  if (typeof value === 'number') {
-    return value as ScoreEnum;
-  }
-
-  const map: Record<string, ScoreEnum> = {
-    "very low": ScoreEnum.VeryLow,
-    "low": ScoreEnum.Low,
-    "medium": ScoreEnum.Medium,
-    "high": ScoreEnum.High,
-    "very high": ScoreEnum.VeryHigh,
-  };
-
-  return map[value.toLowerCase()];
-};
-*/
 
 function parseJson<T>(jsonString: string, typeName: string): T {
   try {
