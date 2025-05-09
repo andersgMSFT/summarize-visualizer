@@ -44,12 +44,7 @@ export default function TestCaseListControl(props: ITestCaseListControlProps) {
     setSortState(nextSortState);
   };
 
-  return <div
-    style={{
-      height: "80vh",
-      overflow: isHidden ? "hidden" : "auto",
-    }}
-  >
+  return <div className="testCaseListControl-container">
     <DataGrid
       items={results}
       columns={columns}
@@ -70,7 +65,7 @@ export default function TestCaseListControl(props: ITestCaseListControlProps) {
         {({ item, rowId }) => (
           <DataGridRow<Insight>
             key={rowId}
-            style={{ borderBottom: "1px solid black" }}
+            className="testCaseListControl-row"
           >
             {({ renderCell }) => (
               <DataGridCell>{renderCell(item)}</DataGridCell>
@@ -82,17 +77,18 @@ export default function TestCaseListControl(props: ITestCaseListControlProps) {
     </div>;
 }
 
+
 const columns: TableColumnDefinition<TestCase>[] = [
   createTableColumn<TestCase>({
-    columnId: "scenario",
+    columnId: "evaluation",
     compare: (a, b) => {
-      return a.scenario.localeCompare(b.scenario);
+      return a.rating - b.rating;
     },
     renderHeaderCell: () => {
-      return <strong>Scenario</strong>;
+      return <strong>Score</strong>;
     },
     renderCell: (testResult) => {
-      return <TableCellLayout>{testResult.scenario}</TableCellLayout>;
+      return <TableCellLayout>{getStars(testResult.rating)}</TableCellLayout>;
     },
   }),
   createTableColumn<TestCase>({
@@ -108,25 +104,23 @@ const columns: TableColumnDefinition<TestCase>[] = [
     renderCell: (testResult) => {
       return (
         <TableCellLayout>
-          {testResult.input.currentPageName} -{" "}
-          {testResult.userContext.UserProfileSettings.ProfileCaption}
+          {testResult.input.currentPageName} -{" "} {testResult.userContext.UserProfileSettings.ProfileCaption}
         </TableCellLayout>
       );
     },
   }),
   createTableColumn<TestCase>({
-    columnId: "evaluation",
+    columnId: "scenario",
     compare: (a, b) => {
-      return a.rating - b.rating;
+      return a.scenario.localeCompare(b.scenario);
     },
     renderHeaderCell: () => {
-      return <strong>Evaluation</strong>;
+      return <strong>Scenario</strong>;
     },
     renderCell: (testResult) => {
-      return <TableCellLayout>{getStars(testResult.rating)}</TableCellLayout>;
+      return <TableCellLayout>{testResult.scenario}</TableCellLayout>;
     },
   }),
 ];
-
 
 type SortState = { sortColumn: string; sortDirection: "asc" | "desc" };

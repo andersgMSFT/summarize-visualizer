@@ -1,0 +1,6 @@
+.insightsListControl-container {
+  overflow-x: auto;
+  overflow-y: auto;
+  height: 100%; 
+}
+

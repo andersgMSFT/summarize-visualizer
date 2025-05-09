@@ -34,18 +34,19 @@ function TestSummaryCard(props: ITestScoreCardProps) {
   return (
     <div className="testSummaryCard-container">
       <div className="testSummaryCard-card">
-        <div style={{ textAlign: "left" }}>
+        <div className="testSummaryCard-closeButton">
           <Button
-            style={{ textAlign: "left" }}
             size="large"
             icon={<DismissFilled />}
             onClick={closeCard}
           />
         </div>
-        <h2>Test Summary</h2>
-        <Text>{testName}</Text>
+        <div className="testSummaryCard-header">
+          <h2>Test Summary</h2>
+          <Text>{testName}</Text>
+        </div>
         <div className="testSummaryCard-content">
-          <div className="testSummaryCard-Overview">
+          <div className="testSummaryCard-overview">
             <SummaryValue title="Average Rating" value={averageRating} />
             <SummaryValue
               title="Number of Test Cases"

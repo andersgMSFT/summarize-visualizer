@@ -1,0 +1,9 @@
+.testResultsViewer-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.testResultsViewer-container > * {
+    width: 50%!important;;
+}
+

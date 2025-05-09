@@ -1,88 +1,80 @@
-import React from "react";
-import { InputData, TestCase, UserContext } from "../../model/InputDataModel";
-import { Button, Text } from "@fluentui/react-components";
-import { DismissFilled, DocumentOnePageRegular } from "@fluentui/react-icons";
+import { useRef, useState } from "react";
+import { TestCase } from "../../model/InputDataModel";
 import Markdown from "react-markdown";
 
 import { InsightsListControl } from "./InsightsListControl";
-import { openPageWithDocumentData } from "../InputDataCard/InputPageDataCard";
-import { getStars } from "../../Utility/Util";
 
 import "./TestCaseCard.css";
 
 interface TestCaseardProps {
-  result: TestCase;
-  closeCard: () => void;
+  testCase: TestCase | null;
 }
 
-const TestCaseCard: React.FC<TestCaseardProps> = ({
-  result,
-  closeCard,
-}) => {
-  const { scenario, input, userContext, output, evaluation, rating } = result;
+export function TestCaseCard(props: TestCaseardProps) {
+  const { testCase } = props;
+  const hasSelectedTestCase = testCase !== null;
+
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [insightsWidth, setInsightsWidth] = useState(50); // percentage
+
+  const onMouseDown = (e: React.MouseEvent) => {
+    const startX = e.clientX;
+    const startWidth = insightsWidth;
+
+    const onMouseMove = (e: MouseEvent) => {
+      if (!containerRef.current) return;
+      const delta = e.clientX - startX;
+      const containerWidth = containerRef.current.offsetWidth;
+      const newWidth = ((startWidth / 100) * containerWidth + delta) / containerWidth * 100;
+      setInsightsWidth(Math.max(20, Math.min(80, newWidth)));
+    };
+
+    const onMouseUp = () => {
+      document.removeEventListener("mousemove", onMouseMove);
+      document.removeEventListener("mouseup", onMouseUp);
+    };
+
+    document.addEventListener("mousemove", onMouseMove);
+    document.addEventListener("mouseup", onMouseUp);
+  };
+
+  if (!hasSelectedTestCase) {
+    return <div className="testCaseCard-placeholder">
+        <div>
+          Select test case to learn more
+        </div>
+      </div>;
+  }
 
   return (
-    <div className="testCaseCard-container">
-      <div className="testCaseCard-card">
-        <Button size="large" icon={<DismissFilled />} onClick={closeCard}/>
-        <TestResultCardHeader scenario={scenario} input={input} userContext={userContext} />
-        <div className="testCaseCard-content">
-          <div className="testCaseCard-insights">
-            <InsightsListControl insights={output} />
-          </div>
-          <div className="testCaseCard-evaluation">
-            <EvaluationControl evaluation={evaluation} rating={rating} />
-          </div>
+    <div className="testCaseCard-card" ref={containerRef}>
+      <div className="testCaseCard-card-content" >
+        <div
+          className="testCaseCard-insights"
+          style={{ width: `${insightsWidth}%`, paddingRight: "8px" }}
+        >
+          <InsightsListControl insights={testCase.output} />
+        </div>
+        <div
+          className="testCaseCard-divider"
+          onMouseDown={onMouseDown}
+        />
+        <div
+          className="testCaseCard-evaluation"
+          style={{ width: `${100 - insightsWidth}%`, paddingLeft: "8px" }}
+        >
+          <LlmEvaluation markdownString={testCase.evaluation} />
         </div>
       </div>
     </div>
   );
-};
+}
 
-function TestResultCardHeader({scenario, input, userContext, }: { scenario: string; input: InputData; userContext: UserContext; }) {
+function LlmEvaluation(props: { markdownString: string }) {
+  const { markdownString } = props;
   return (
-    <div className="testCaseCard-header">
-      <div>
-        <Text className="testCaseCard-title">
-          {input.currentPageName} -{" "}
-          {userContext.UserProfileSettings.ProfileCaption}
-        </Text>
-      </div>
-      <div>
-        <Text className="testCaseCard-scenario">
-          <strong>Scenario: </strong> {scenario}
-        </Text>
-      </div>
-      <div className="testCaseCard-open-page-button">
-        <Button
-          size="large"
-          icon={<DocumentOnePageRegular />}
-          onClick={() => openPageWithDocumentData(input)}
-        >
-          Open Page Data
-        </Button>
-      </div>
+    <div className="testCaseCard-evaluation-container">
+      <Markdown>{markdownString}</Markdown>
     </div>
   );
 }
-
-function EvaluationControl({
-  evaluation,
-  rating,
-}: {
-  evaluation: string;
-  rating: number;
-}) {
-  return (
-    <>
-      <Text className="testCaseCard-evaluation-text">
-        <strong>{getStars(rating)}</strong>
-      </Text>
-      <div className="testCaseCard-evaluation-container">
-        <Markdown>{evaluation}</Markdown>
-      </div>
-    </>
-  );
-}
-
-export default TestCaseCard;

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { TestCase } from "../../model/InputDataModel";
-import TestCaseCard from "./TestCaseCard";
+import { TestCaseCard } from "./TestCaseCard";
 
 import "./TestResultsViewer.css";
 import TestCaseListControl from "./TestCaseListControl";
@@ -13,33 +13,25 @@ const TestResultsViewer: React.FC<ITestResultsViewerProps> = (
   props: ITestResultsViewerProps
 ) => {
   const { results } = props;
-  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState<number>(-1);
 
   const handleItemClick = (index: number) => {
     console.log("Clicked item index:", index);
     setSelectedIndex(index);
   };
 
-  const showCard =
-    selectedIndex !== null &&
-    selectedIndex >= 0 &&
-    selectedIndex < results.length;
+  const selectedTestCase = selectedIndex > -1 ? results[selectedIndex] : null;
 
-  return (
-    <>
+  return <div className="testResultsViewer-container">
       <TestCaseListControl
         results={results}
         openCard={handleItemClick}
-        isHidden={showCard}
+        isHidden={selectedTestCase !== null}
       />
-      {showCard && (
-        <TestCaseCard
-          result={results[selectedIndex]}
-          closeCard={() => setSelectedIndex(null)}
-        />
-      )}
-    </>
-  );
+      <TestCaseCard
+        testCase={selectedTestCase}
+      />
+    </div>
 };
 
 export default TestResultsViewer;

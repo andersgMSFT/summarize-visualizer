@@ -1,14 +1,7 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
 .version-tag {
   font-size: 0.8rem;
   color: #888;
   position: fixed;
-  top: 1rem;
-  right: 1rem;
+  top: 0;
+  right: 5px;
 }

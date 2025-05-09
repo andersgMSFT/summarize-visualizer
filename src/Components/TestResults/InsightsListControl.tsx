@@ -14,6 +14,8 @@ import {
 } from "@fluentui/react-components";
 import { Insight} from "../../model/InputDataModel";
 
+import "./InsightsListControl.css";
+
 const columns: TableColumnDefinition<Insight>[] = [
   createTableColumn<Insight>({
     columnId: "score",
@@ -53,22 +55,6 @@ const columns: TableColumnDefinition<Insight>[] = [
   }),
 ];
 
-const columnSizingOptions = {
-  score: {
-    defaultWidth: 120,
-    minWidth: 80,
-  },
-  value: {
-    defaultWidth: 120,
-    minWidth: 80,
-  },
-  description: {
-    defaultWidth: 300,
-    minWidth: 200,
-    idealWidth: 300,
-  },
-};
-
 export const InsightsListControl = (props: { insights: Insight[] }) => {
   const { insights } = props;
 
@@ -89,7 +75,7 @@ export const InsightsListControl = (props: { insights: Insight[] }) => {
   };
 
   return (
-    <div style={{ width: "100%", height: "100%", overflow: "auto" }}>
+    <div className="insightsListControl-container">
       <Text style={{ color: "#fff", fontSize: "14pt" }}>
         <strong>Insights</strong>
       </Text>
@@ -99,8 +85,6 @@ export const InsightsListControl = (props: { insights: Insight[] }) => {
         sortable
         sortState={sortState}
         onSortChange={onSortChange}
-        resizableColumns
-        columnSizingOptions={columnSizingOptions}
       >
         <DataGridHeader>
           <DataGridRow>
@@ -114,6 +98,7 @@ export const InsightsListControl = (props: { insights: Insight[] }) => {
             <DataGridRow<Insight>
               key={rowId}
               style={{ borderBottom: "1px solid black" }}
+              className="insightsListControl-row"
             >
               {({ renderCell }) => (
                 <DataGridCell>{renderCell(item)}</DataGridCell>

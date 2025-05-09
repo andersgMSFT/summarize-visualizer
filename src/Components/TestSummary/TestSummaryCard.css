@@ -4,7 +4,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.3); /* translucent background */
+  background: rgba(0, 0, 0, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,52 +12,58 @@
 }
 
 .testSummaryCard-card {
+  width: 700px;
+  height: 400px;
   background-color: #242424;
   border-radius: 12px;
-  padding: 24px;
-  height: 70vh;
-  width: 70vw;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
 }
 
-.testSummaryCard-card h2 {
-  margin: 0;
+.testSummaryCard-closeButton {
+  text-align: right;
+  position: relative;
+  top: 10px;
+  left: -10px;
+}
+
+.testSummaryCard-header * {
+  margin: 0!important;
 }
 
 .testSummaryCard-content {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-}
-
-.testSummaryCard-Overview {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-}
-
-.testSummaryCard-Overview .testSummaryCard-summaryValue {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
   font-size: 16pt;
 }
 
-.testSummaryCard-scoreDistribution {
+.testSummaryCard-overview{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 16pt;
-  margin-bottom: 40px;
+  width: 50%;
+  gap: 30px;
 }
 
-.testSummaryCard-star {
+.testSummaryCard-summaryValue {
+  width: 100%;
+  text-align: center;
+}
+
+
+.testSummaryCard-scoreDistribution {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  align-items: center;
+}
+
+.testSummaryCard-star{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 200px;
-}
-
-.testSummaryCard-star:first-child {
-  text-align: left; 
+  width: 50%;
+  text-align: left;
 }

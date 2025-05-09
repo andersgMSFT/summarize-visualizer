@@ -1,12 +1,42 @@
-.test-results-list .fui-ListItem:hover {
-    outline: 2px solid #0078D4; /* Add a blue outline on hover */
-    outline-offset: 2px; /* Optional: Add some spacing between the outline and the element */
+.testCaseListControl-container {
+  max-height: calc(100vh - 90px); 
+  height: calc(100vh - 90px); 
+  overflow-y: auto;  
 }
 
+.testCaseListControl-row {
+    border-bottom: 1px solid grey!important;
+    height: 65px;
+}
 
-.test-results-list .fui-ListItem.selected {
-    background-color: #0078D4; /* Change the background color to blue when selected */
-    color: white; /* Change the text color to white when selected */
-    outline: 2px solid #005A9E; /* Add a darker blue outline when selected */
-    outline-offset: 2px; /* Optional: Add some spacing between the outline and the element */
+.testCaseListControl-row:hover {
+    background-color: #343434!important;
+}
+
+.testCaseListControl-row {
+    text-align: left;
+}
+.testCaseListControl-row[aria-selected="true"] {
+    background-color: #2a72a5!important;
+}
+
+.testCaseListControl-container .fui-DataGridHeader .fui-DataGridSelectionCell,
+.testCaseListControl-container .testCaseListControl-row > .fui-DataGridSelectionCell {
+    display: none;
+}
+
+/* This is the Score column*/
+.testCaseListControl-container .fui-DataGridHeader .fui-DataGridHeaderCell:nth-child(2),
+.testCaseListControl-container .testCaseListControl-row > .fui-DataGridCell:nth-of-type(2) {
+    width: 90px!important;
+    min-width: 90px!important;
+    max-width: 90px!important;
+}
+
+/* This is the Context column*/
+.testCaseListControl-container .fui-DataGridHeader .fui-DataGridHeaderCell:nth-child(3),
+.testCaseListControl-container .testCaseListControl-row > .fui-DataGridCell:nth-of-type(3) {
+    width: 400px!important;
+    min-width: 400px!important;
+    max-width: 400px!important;
 }
