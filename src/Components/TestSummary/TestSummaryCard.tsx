@@ -11,7 +11,7 @@ interface ITestScoreCardProps {
   closeCard: () => void;
 }
 
-const starRange = [0, 1, 2, 3, 4, 5];
+const starRange = [1, 2, 3, 4, 5];
 
 function TestSummaryCard(props: ITestScoreCardProps) {
   const { testName, result, closeCard } = props;

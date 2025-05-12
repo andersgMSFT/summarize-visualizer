@@ -1,7 +1,10 @@
 import { useRef, useState } from "react";
-import { TestCase } from "../../model/InputDataModel";
 import Markdown from "react-markdown";
 
+import { Button } from "@fluentui/react-components";
+import { WindowNewRegular } from "@fluentui/react-icons";
+
+import { InputData, TestCase } from "../../model/InputDataModel";
 import { InsightsListControl } from "./InsightsListControl";
 
 import "./TestCaseCard.css";
@@ -40,10 +43,10 @@ export function TestCaseCard(props: TestCaseardProps) {
 
   if (!hasSelectedTestCase) {
     return <div className="testCaseCard-placeholder">
-        <div>
-          Select test case to learn more
-        </div>
-      </div>;
+      <div>
+        Select test case to learn more
+      </div>
+    </div>;
   }
 
   return (
@@ -63,18 +66,37 @@ export function TestCaseCard(props: TestCaseardProps) {
           className="testCaseCard-evaluation"
           style={{ width: `${100 - insightsWidth}%`, paddingLeft: "8px" }}
         >
-          <LlmEvaluation markdownString={testCase.evaluation} />
+          <LlmEvaluation markdownString={testCase.evaluation} testCase={testCase} />
         </div>
       </div>
     </div>
   );
 }
 
-function LlmEvaluation(props: { markdownString: string }) {
-  const { markdownString } = props;
+function LlmEvaluation(props: { markdownString: string, testCase: TestCase }) {
+  const { markdownString, testCase } = props;
   return (
     <div className="testCaseCard-evaluation-container">
+      <div className="testCaseCard-data-popout">
+        <Button
+          size="large"
+          icon={<WindowNewRegular />}
+          title={"Open input data in new window"}
+          onClick={() => openPageDataInNewWindow(testCase.input)}
+        />
+      </div>
       <Markdown>{markdownString}</Markdown>
     </div>
+  );
+}
+
+
+// utils/windowUtils.ts
+export function openPageDataInNewWindow(data: InputData) {
+  localStorage.setItem("documentData", JSON.stringify(data));
+  window.open(
+    window.location.href,
+    "_blank",
+    "width=900,height=800,left=100,top=100,noopener,noreferrer"
   );
 }
