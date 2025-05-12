@@ -11,7 +11,7 @@ import {
 import { InputPageDataCard } from "./Components/InputDataCard/InputPageDataCard";
 import TestSummaryCard from "./Components/TestSummary/TestSummaryCard";
 
-const version = "1.0.1";
+const version = "0.0.2";
 
 enum AppState {
   WaitingForUpload = "waitingforupload",
