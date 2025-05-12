@@ -19,12 +19,11 @@ import { getStars } from "../../Utility/Util";
 
 interface ITestCaseListControlProps {
   results: TestCase[];
-  isHidden?: boolean;
   openCard: (index: number) => void;
 }
 
 export default function TestCaseListControl(props: ITestCaseListControlProps) {
-  const { results, openCard, isHidden } = props;
+  const { results, openCard } = props;
   
   const onSelectionChange: DataGridProps["onSelectionChange"] = (_e: unknown, data: OnSelectionChangeData) => {
     const index = Number(data.selectedItems.values().next().value);

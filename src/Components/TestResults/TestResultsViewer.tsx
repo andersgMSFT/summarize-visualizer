@@ -26,7 +26,6 @@ const TestResultsViewer: React.FC<ITestResultsViewerProps> = (
       <TestCaseListControl
         results={results}
         openCard={handleItemClick}
-        isHidden={selectedTestCase !== null}
       />
       <TestCaseCard
         testCase={selectedTestCase}
